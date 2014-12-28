@@ -78,19 +78,19 @@ $(function () {
      }
     });
     $('#download-CSV').click(function(event){
-//      var jsonString = JSON.stringify(encounterData);
-//      var csvString = csvConverter.convertCSV(jsonString);
-//      if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) {  // Determine if client is IE11
-//         
-//        var blob = new Blob([csvString],{
-//        type: "text/csv;charset=utf-8;"
-//        });
-//        window.navigator.msSaveBlob(blob, "tcm-01.csv");
-//
-//      } else {
-//
-//        window.open("data:text/csv;charset=utf-8," + escape(csvString));
-//     }
+      var jsonString = JSON.stringify(encounterData);
+      var csvString = csvConverter.convertCSV(jsonString);
+      if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) {  // Determine if client is IE11
+         
+        var blob = new Blob([csvString],{
+        type: "text/csv;charset=utf-8;"
+        });
+        window.navigator.msSaveBlob(blob, "tcm-01.csv");
+
+      } else {
+
+        window.open("data:text/csv;charset=utf-8," + escape(csvString));
+     }
     });
     
     $('.dx-datagrid-action-cursor').on('click', function(){
