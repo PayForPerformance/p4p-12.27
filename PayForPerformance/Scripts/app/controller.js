@@ -19,6 +19,7 @@ comharControllers.controller('programCtrl', ['$scope', '$http', function ($scope
 
 comharControllers.controller('dateCtrl', ['$rootScope', '$scope', '$http',
   function ($rootScope, $scope, $http) {
+
     $http.get('Scripts/DateLookup.js').success(function(data) {
       
       $scope.years = angular.fromJson(data);
@@ -27,7 +28,7 @@ comharControllers.controller('dateCtrl', ['$rootScope', '$scope', '$http',
       $scope.setSelected = function(index) {
         $rootScope.selected = $scope.years[index];
       }
-      console.log($scope)
+     
 
   });
 }]);

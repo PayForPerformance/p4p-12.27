@@ -20,7 +20,7 @@ $(function () {
   var summarySourceUrl = baseUrl + "PayForPerformanceWebApi/api/summary"
   var encounterDetailSourceUrl = baseUrl + "PayForPerformanceWebApi/api/encounterDetail"
     try {
-        $.getJSON(summarySourceUrl, function (summaryData) {
+        $.getJSON(summaryUrl, function (summaryData) {
             $('#tcm-01-01').on('click', function () {
                 setTimeout(function () { //Delay until chart container is visible in DOM. 
                     comharApp.dxChart.tcmChart01($('#chart2-TCM-01-01'), summaryData)
@@ -61,8 +61,8 @@ $(function () {
         comharApp.colorData();
       }, 50);
     });
-
-    $('#download-CSV').click(function(){
+    $('#download-CSV').click(function() {
+     
       var jsonString = JSON.stringify(encounterData);
       var csvString = csvConverter.convertCSV(jsonString);
       if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) {  // Determine if client is IE11
@@ -76,6 +76,21 @@ $(function () {
 
         window.open("data:text/csv;charset=utf-8," + escape(csvString));
      }
+    });
+    $('#download-CSV').click(function(event){
+//      var jsonString = JSON.stringify(encounterData);
+//      var csvString = csvConverter.convertCSV(jsonString);
+//      if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) {  // Determine if client is IE11
+//         
+//        var blob = new Blob([csvString],{
+//        type: "text/csv;charset=utf-8;"
+//        });
+//        window.navigator.msSaveBlob(blob, "tcm-01.csv");
+//
+//      } else {
+//
+//        window.open("data:text/csv;charset=utf-8," + escape(csvString));
+//     }
     });
     
     $('.dx-datagrid-action-cursor').on('click', function(){
